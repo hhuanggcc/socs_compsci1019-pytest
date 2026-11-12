@@ -27,9 +27,18 @@ def test_create_csv_reader_invalid_path():
         create_csv_reader("non_existent_config.csv")
 
 
-# Sub-task 3
+# Sub-task 3        
+@pytest.mark.parametrize("hand, expected_score", [
+    (["H7", "D8"], 15),
+    (["HJ", "SQ"], 20),
+    (["HA", "D9"], 20),
+    (["HA", "HJ", "D5"], 16),
+    (["H10", "D8", "S5"], 0)
+])
 def test_score_hand_combinations(hand, expected_score):
-    pass
+    result = score_hand(hand)
+
+    assert result == expected_score
 
 # Sub-task 4
 def test_display_player_console_output(capsys):
