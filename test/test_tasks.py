@@ -8,12 +8,23 @@ from card_game.LoadCSV import create_csv_reader
 
 # Sub-task 1
 def test_calculate_bust_probability():
-    pass
+    hand = ["H10", "D6"]
+
+    deck = [
+        "H2", "H3", "H4", "H5",
+        "H6", "H7", "H8", "H9",
+        "H10", "HJ", "HQ", "HK"
+    ]
+
+    result = calculate_bust_probability(hand, deck)
+
+    assert result == pytest.approx(0.667, abs=0.01)
 
 
 # Sub-task 2
 def test_create_csv_reader_invalid_path():
-    pass
+    with pytest.raises(IOError):        
+        create_csv_reader("non_existent_config.csv")
 
 
 # Sub-task 3
