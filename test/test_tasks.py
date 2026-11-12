@@ -52,6 +52,7 @@ def test_display_player_console_output(capsys):
 
 # Sub-task 5
 def test_create_csv_reader_valid_data(tmp_path):
+    csv_file = tmp_path / "card_player.csv"
     csv_file.write_text(
         "DEALER,Star Dealer\n"
         "COMPUTER,King Computer\n"
