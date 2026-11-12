@@ -52,6 +52,13 @@ def test_display_player_console_output(capsys):
 
 # Sub-task 5
 def test_create_csv_reader_valid_data(tmp_path):
-    pass
+    csv_file.write_text(
+        "DEALER,Star Dealer\n"
+        "COMPUTER,King Computer\n"
+        "COMPUTER,Queen Computer\n"
+    )
+
+    with create_csv_reader(str(csv_file)) as reader:
+        lines = [line.strip() for line in reader]
 
 
